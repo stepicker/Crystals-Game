@@ -29,10 +29,22 @@
     <div id="wins">Wins</div>
     <div id="losses">Losses</div>
 
-    <div><img class="crystal" id="crystal1" src=./assets/images/crystal1.png></div>
-    <div><img class="crystal" id="crystal2" src=./assets/images/crystal2.png></div>
-    <div><img class="crystal" id="crystal3" src=./assets/images/crystal3.png></div>
-    <div><img class="crystal" id="crystal4" src=./assets/images/crystal4.png></div>
+    <div id="crystals">
+        <div class="crystal-div"><img class="crystal" id="crystal1" src=./assets/images/crystal1.png></div>
+        <div class="crystal-div"><img class="crystal" id="crystal2" src=./assets/images/crystal2.png></div>
+        <div class="crystal-div"><img class="crystal" id="crystal3" src=./assets/images/crystal3.png></div>
+        <div class="crystal-div"><img class="crystal" id="crystal4" src=./assets/images/crystal4.png></div>
+    </div>
+
+    <div id="instructions">
+        <ul>
+            <h1>Instructions:</h1>
+            <li>You are given a random "target number" at the start of each game.</li>
+            <li>By clicking a crystal, you add a specific number to your score.</li>
+            <li>You win the game when your score matches the target number. If you go over, you lose.</li>
+            <li>Each time you win or lose, new random values are generated for the target number and the crystals.</li>
+        </ul>
+    </div>
 
     <!-- Linking game script -->
     <script type="text/javascript" src="./assets/javascript/game.js">

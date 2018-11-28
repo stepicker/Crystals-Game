@@ -1,6 +1,81 @@
-.crystal {
-    width: 100px;
-    height: 100px;
+body {
+    color: #525252;
+    font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+    background-image: url("../images/what-the-hex.png");
+    font-size: 16px;
+    line-height: 24px;
+}
+
+h1 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+#target {
+    margin: 20px 10px 20px 20px;
+    height: 35px;
+    width: 300px;
+    font-size: 20px;
+    padding-top: 10px;
+    padding-left: 20px;
+    background: #9ab9d8;
+    border: 1px solid #777777;
+    border-radius: 10px;
+}
+
+#score {
+    margin: 20px 10px 20px 20px;;
+    height: 30px;
+    width: 300px;
+    padding-top: 10px;
+    padding-left: 20px;
+    background: #9ab9d8;
+    border: 1px solid #777777;
+    border-radius: 7px;
+}
+
+#wins {
+    margin: 20px 20px 10px 20px;
     float: left;
+    border-right: 1px solid #777777;
+    padding-right: 30px;
+}
+
+#losses {
+    margin: 20px 20px 10px 10px;
+    float: left;
+}
+
+#crystals {
+    clear: both;
+}
+
+.crystal-div {
+    height: 200px;
     margin: 20px;
+    float: left;
+}
+
+.crystal {
+    width: 150px;
+    height: 150px;
+}
+
+#instructions {
+    margin-left: 20px;
+    padding: 10px;
+    width: 730px;
+    background: white;
+    border: 1px solid #777777;
+    border-radius: 5px;
+    clear: both;
+}
+
+@media screen and (max-width: 800px) {
+
+    #instructions {
+        width: 80%;
+        margin-right: 20px;
+    }
+
 }
