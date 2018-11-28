@@ -23,4 +23,4 @@ Head to https://stepicker.github.io/unit-4-game
 
 ## Contributing
 
-Pull requests are always welcome!
+Pull requests are always welcome.
