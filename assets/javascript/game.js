@@ -24,19 +24,25 @@ var losingSound = new Audio("./assets/sounds/sad-trombone.mp3");
 // Generate a random "target number" between 19 and 120
 var createRandomTarget = function() {
     targetNumber = Math.floor(Math.random() * (101) + 19);
-    console.log("Target number: " + targetNumber);
 }
 
-// Generate random numbers between 1 and 12 for the four crystals
+// Generate a random number between 1 and 12
+var randomGenerator = function() {
+    num = Math.floor(Math.random() * (11) + 1);
+    return num;
+}
+
+// Get four random numbers using the previous function
 var createRandomNumbers = function() {
-    num1 = Math.floor(Math.random() * (11) + 1);
-    num2 = Math.floor(Math.random() * (11) + 1);
-    num3 = Math.floor(Math.random() * (11) + 1);
-    num4 = Math.floor(Math.random() * (11) + 1);
-    console.log("Crystal 1: " + num1);
-    console.log("Crystal 2: " + num2);
-    console.log("Crystal 3: " + num3);
-    console.log("Crystal 4: " + num4);
+    num1 = randomGenerator();
+    num2 = randomGenerator();
+    num3 = randomGenerator();
+    num4 = randomGenerator();
+    // Assign those numbers to the four crystals as image attributes
+    $('#crystal1').attr("num", num1);
+    $('#crystal2').attr("num", num2);
+    $('#crystal3').attr("num", num3);
+    $('#crystal4').attr("num", num4);
 }
 
 // Populate the web page
@@ -49,7 +55,6 @@ var populatePage = function() {
 
 // Check for wins or losses
 var checkScore = function() {
-    populatePage();
     if (userScore === targetNumber) {
         youWin();    
     }
@@ -60,23 +65,23 @@ var checkScore = function() {
 
 // Process wins
 var youWin = function() {
-    userWins++;
     winningSound.play();
     $("#result").html("<img src = './assets/images/you-win.png'>");
     setTimeout(function() {
         $("#result").html("");
     }, 4000);
+    userWins++;
     resetGame();
 }
 
 // Process losses
 var youLose = function() {
-    userLosses++;
     losingSound.play();
     $("#result").html("<img src = './assets/images/you-lose.png'>");
     setTimeout(function() {
         $("#result").html("");
     }, 4000);
+    userLosses++;
     resetGame();
 }
 
@@ -97,22 +102,11 @@ var resetGame = function () {
 // MAIN PROCESS
 // ==================================================
 
-// Define behavior when the crystals are clicked
-$("#crystal1").on("click", function(){
-    userScore = (userScore + num1);
+// Define behavior when the crystals are clicked, using the crystal num attribute converted into a number
+$(".crystal").on("click", function(){
+    userScore = (userScore + Number($(this).attr("num")));
     checkScore();
-});
-$("#crystal2").on("click", function(){
-    userScore = (userScore + num2);
-    checkScore();
-});
-$("#crystal3").on("click", function(){
-    userScore = (userScore + num3);
-    checkScore();
-});
-$("#crystal4").on("click", function(){
-    userScore = (userScore + num4);
-    checkScore();
+    populatePage();
 });
 
 // Start the first game 
