@@ -69,7 +69,7 @@ var youWin = function() {
     $("#result").html("<img src = './assets/images/you-win.png'>");
     setTimeout(function() {
         $("#result").html("");
-    }, 4000);
+    }, 2000);
     userWins++;
     resetGame();
 }
@@ -80,7 +80,7 @@ var youLose = function() {
     $("#result").html("<img src = './assets/images/you-lose.png'>");
     setTimeout(function() {
         $("#result").html("");
-    }, 4000);
+    }, 2000);
     userLosses++;
     resetGame();
 }
@@ -94,8 +94,10 @@ var startGame = function() {
 
 // Reset the game after each win or loss
 var resetGame = function () {
-    userScore = 0;
-    startGame();
+    setTimeout(function() {
+        userScore = 0;
+        startGame();
+    }, 2000);
 }
 
 
