@@ -4,11 +4,11 @@ $(document).ready(function() {
 // ==================================================
 
 // Create key variables for the game
-var targetNumber = 0;
-var num1 = 0;
-var num2 = 0;
-var num3 = 0;
-var num4 = 0;
+var targetNumber;
+var num1;
+var num2;
+var num3;
+var num4;
 var userWins = 0;
 var userLosses = 0;
 var userScore = 0;
@@ -25,7 +25,7 @@ var losingSound = new Audio("./assets/sounds/sad-trombone.mp3");
 var createRandomTarget = function() {
     targetNumber = Math.floor(Math.random() * (101) + 19);
     console.log("Target number: " + targetNumber);
-};
+}
 
 // Generate random numbers between 1 and 12 for the four crystals
 var createRandomNumbers = function() {
@@ -37,35 +37,7 @@ var createRandomNumbers = function() {
     console.log("Crystal 2: " + num2);
     console.log("Crystal 3: " + num3);
     console.log("Crystal 4: " + num4);
-};
-
-// Check for wins or losses
-var checkScore = function() {
-    populatePage();
-    if (userScore === targetNumber) {
-        userWins++;
-        winningSound.play();
-        resetGame();
-    }
-    else if (userScore > targetNumber) {
-        userLosses++;
-        losingSound.play();
-        resetGame();
-    }
-};
-
-// Start the game
-var startGame = function() {
-    createRandomTarget();
-    createRandomNumbers();
-    populatePage();
-};
-
-// Reset the game after each win or loss
-var resetGame = function () {
-    userScore = 0;
-    startGame();
-};
+}
 
 // Populate the web page
 var populatePage = function() {
@@ -73,7 +45,53 @@ var populatePage = function() {
     $("#score").text("Your Current Score: " + userScore);
     $("#wins").text("Wins: " + userWins);
     $("#losses").text("Losses: " + userLosses);
-};
+}
+
+// Check for wins or losses
+var checkScore = function() {
+    populatePage();
+    if (userScore === targetNumber) {
+        youWin();    
+    }
+    else if (userScore > targetNumber) {
+        youLose();
+    }
+}
+
+// Process wins
+var youWin = function() {
+    userWins++;
+    winningSound.play();
+    $("#result").html("<img src = './assets/images/you-win.png'>");
+    setTimeout(function() {
+        $("#result").html("");
+    }, 4000);
+    resetGame();
+}
+
+// Process losses
+var youLose = function() {
+    userLosses++;
+    losingSound.play();
+    $("#result").html("<img src = './assets/images/you-lose.png'>");
+    setTimeout(function() {
+        $("#result").html("");
+    }, 4000);
+    resetGame();
+}
+
+// Start the game
+var startGame = function() {
+    createRandomTarget();
+    createRandomNumbers();
+    populatePage();
+}
+
+// Reset the game after each win or loss
+var resetGame = function () {
+    userScore = 0;
+    startGame();
+}
 
 
 // MAIN PROCESS
