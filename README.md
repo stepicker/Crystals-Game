@@ -19,8 +19,3 @@ After two intense weeks of Javascript, we got to practice jQuery for DOM manipul
 ## Ready to play?
 
 Head to https://stepicker.github.io/unit-4-game
-
-
-## Contributing
-
-Pull requests are always welcome.
